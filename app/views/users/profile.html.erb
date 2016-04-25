@@ -1,0 +1,41 @@
+<%= render 'publics/navbar' %>
+<div class="page-container">
+  <div class="content">
+    <div class="container">
+      <div class="panel panel-default col-xs-12">
+        <div class="panel-body">
+          <div class="text-center">
+            <%= image_tag @user.image %>
+            <h4><%= @user.username %></h4>
+            <% if current_user.present? %>
+                <% if current_user.id != @user.id %>
+                  <% if !current_user.following?(@user) %>
+                    <a href="/usuarios/follow/<%= @user.id %>" class="btn btn-primary btn-block"><i class="fa fa-plus-circle"></i> Seguir</a>
+                  <% else %>
+                    <a href="/usuarios/unfollow/<%= @user.id %>" class="btn btn-danger btn-block"><i class="fa fa-remove"></i> Deixar de Seguir</a>
+                  <% end %>
+                <% end %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+            <div class="panel-body">
+              <div class="text-center pull-left">
+                <a href="/usuarios/<%= @user.to_param%>/seguidores">
+                  <span>Seguidores</span>
+                  <h4><%= @user.followers_count %></h4>
+                </a>
+              </div>
+              <div class="text-center pull-right">
+                <a href="/usuarios/<%= @user.to_param%>/seguindo">
+                  <span>Seguindo</span>
+                  <h4><%= @user.follow_count %></h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'publics/footer' %>
+</div>

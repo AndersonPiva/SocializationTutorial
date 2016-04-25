@@ -1,0 +1,32 @@
+<%= render 'publics/navbar' %>
+<div class="page-container">
+  <div class="content">
+    <div class="container">
+      <div class="panel panel-default col-xs-12">
+        <div class="panel-body">
+          <div class="text-center">
+            <%= image_tag current_user.image %>
+            <h4><%=current_user.username%></h4>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+            <div class="panel-body">
+              <div class="text-center pull-left">
+                <a href="/usuarios/<%= current_user.to_param %>/seguidores">
+                  <span>Seguidores</span>
+                  <h4><%= current_user.followers_count %></h4>
+                </a>
+              </div>
+              <div class="text-center pull-right">
+                <a href="/usuarios/<%= current_user.to_param %>/seguindo">
+                  <span>Seguindo</span>
+                  <h4><%= current_user.follow_count %></h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'publics/footer' %>
+</div>

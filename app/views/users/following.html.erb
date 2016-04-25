@@ -1,0 +1,26 @@
+<%= render 'publics/navbar' %>
+<div class="page-container">
+  <div class="content">
+    <div class="container">
+      <h1>Seguindo</h1>
+      <div class="page-content">
+        <% if @user.all_following.blank? %>
+          <h4>Você ainda não segue ninguém</h4>
+        <% end %>
+        <% @user.all_following.each do |user| %>
+          <div class="panel panel-default col-xs-12 col-sm-3">
+            <div class="panel-body">
+              <div class="text-center">
+                <a href="/usuarios/<%= user.to_param %>">
+                  <%= image_tag user.image %>
+                  <span><%= user.username %></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= render 'publics/footer' %>
+  </div>
+</div>
