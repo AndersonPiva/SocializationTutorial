@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   match '/usuarios/unfollow/:id', to: 'users#unfollow', via:[:get]
   match '/usuarios/:id/seguidores', to: 'users#followers', via: [:get]
   match '/usuarios/:id/seguindo', to: 'users#following', via: [:get]
-  # You can have the root of your site routed with "root"
+  match '/posts/usuario/:id', to: 'posts#index', via: [:get]
   root 'users#index'
 
   # Example of regular route:

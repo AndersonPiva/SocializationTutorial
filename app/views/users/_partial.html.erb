@@ -1,0 +1,14 @@
+<div class="table-responsive page-content">
+  <table class="table table-hover">
+<% @posts.each do |post| %>
+      <tr>
+        <td class="text-center">
+          <strong><%= post.title %></strong>
+        </td>
+        <td class="text-center">
+          <%= post.description %>
+        </td>
+      </tr>
+<% end %>
+</table>
+</div>

@@ -24,6 +24,8 @@
               </div>
             </div>
           </div>
+          <%= render partial: 'posts/form', locals: { :@post => Post.new }  %>
+          <%= render 'partial' %>
         </div>
       </div>
     </div>
